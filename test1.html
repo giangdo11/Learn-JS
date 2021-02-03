@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>JavaScript Statements</h2>
+        <p>A <b>JavaScript program</b> is a list of <b>statements</b> to be executed by a computer.</p>
+        <p id="demo"></p>
+        <script>
+            var x, y, z;  // Statement 1
+            x = 5;        // Statement 2
+            y = 6;        // Statement 3
+            z = x + y;    // Statement 4
+            document.getElementById("demo").innerHTML =
+            "The value of z is " + z + ".";
+        </script>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <button type="button" onclick="document.getElementById('demo').innerHTML = '5' + 2 + 3">The result of adding "5" + 2 + 3</button>
+        <button type="button" onclick="document.getElementById('demo').innerHTML = 2 + 3 + '5'">The result of adding 2 + 3 + "5"</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p>the code changes the content of its own element (using this.innerHTML)</p>
+        <button onclick="this.innerHTML=Date()">The time is?</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p>String Methods | str1 = "Please locate where 'locate' occurs!"</p>
+        <p id="demo1"></p>
+        <script>
+            var str1 = "Please locate where 'locate' occurs!";
+        </script>
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = 'length = ' + str1.length">str1.length</button>
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = 'position = ' + str1.indexOf('locate')">str1.indexOf('locate')</button>
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = 'position = ' + str1.lastIndexOf('locate')">str1.lastIndexOf('locate')</button>
+        <!-- Both indexOf(), and lastIndexOf() return -1 if the text is not found. -->
+        <!-- Both methods accept a second parameter as the starting position for the search: -->
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = 'position = ' + str1.indexOf('locate', 15)">str1.indexOf('locate', 15)</button>
+        <!-- The lastIndexOf() methods searches backwards (from the end to the beginning), meaning: if the second parameter is 15, the search starts at position 15, and searches to the beginning of the string. -->
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = 'position = ' + str1.lastIndexOf('locate', 15)">str1.lastIndexOf('locate', 15)</button>
+        <!-- The search() method returns the position of the first occurrence of a specified text in a string -->
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = 'position = ' + str1.search('locate')">str1.search('locate')</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p>Extracting String Parts | str2 = "Apple, Banana, Kiwi"</p>
+        <!-- There are 3 methods for extracting a part of a string:
+            - slice(start, end)
+            - substring(start, end)
+            - substr(start, length) -->
+        <p id="demo2"></p>
+        <script>
+            var str2 = "Apple, Banana, Kiwi";
+        </script>
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = 'string = ' + str2.slice(7, 13)">str2.slice(7, 13)</button>
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = 'string = ' + str2.slice(-12, -6)">str2.slice(-12, -6)</button>
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = 'string = ' + str2.slice(7)">str2.slice(7)</button>
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = 'string = ' + str2.slice(-12)">str2.slice(-12)</button>
+        <!-- substring() is similar to slice(). The difference is that substring() cannot accept negative indexes. -->
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = 'string = ' + str2.substring(7, 13)">str2.substring(7, 13)</button>
+        <!-- substr() is similar to slice(). The difference is that the second parameter specifies the length of the extracted part. -->
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = 'string = ' + str2.substr(7, 6)">str2.substr(7, 6)</button>
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = 'string = ' + str2.substr(-4)">str2.substr(-4)</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p id="demo3">Replacing String Content | str3 = "Please visit Microsoft and Microsoft!"</p>
+        <script>
+            var str3 = document.getElementById("demo3").innerHTML; 
+        </script>
+        <!-- The replace() method does not change the string it is called on. It returns a new string. -->
+        <!-- By default, the replace() method replaces only the first match -->
+        <button type="button" onclick="document.getElementById('demo3').innerHTML = str3.replace('Microsoft', 'W3Schools')">str3.replace('Microsoft', 'W3Schools')</button>
+        <!-- By default, the replace() method is case sensitive. Writing MICROSOFT (with upper-case) will not work -->
+        <button type="button" onclick="document.getElementById('demo3').innerHTML = str3.replace('MICROSOFT', 'W3Schools')">str3.replace('MICROSOFT', 'W3Schools') not work</button>
+        <!-- To replace case insensitive, use a regular expression with an /i flag (insensitive) -->
+        <button type="button" onclick="document.getElementById('demo3').innerHTML = str3.replace(/MICROSOFT/i, 'W3Schools')">str3.replace(/MICROSOFT/i, 'W3Schools')</button>
+        <!-- To replace all matches, use a regular expression with a /g flag (global match) -->
+        <button type="button" onclick="document.getElementById('demo3').innerHTML = str3.replace(/Microsoft/g, 'W3Schools')">str3.replace(/Microsoft/g, 'W3Schools')</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p id="demo4">Converting to Upper and Lower Case</p>
+        <script>
+            var str4 = document.getElementById("demo4").innerHTML; 
+        </script>
+        <button type="button" onclick="document.getElementById('demo4').innerHTML = str4.toUpperCase()">str4.toUpperCase()</button>
+        <button type="button" onclick="document.getElementById('demo4').innerHTML = str4.toLowerCase()">str4.toLowerCase()</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p id="demo5">The concat() Method</p>
+        <script>
+            var str5_1 = document.getElementById("demo5").innerHTML;
+            var str5_2 = document.getElementById("demo4").innerHTML;
+        </script>
+        <button type="button" onclick="document.getElementById('demo5').innerHTML = str5_1.concat(' + ', str5_2)">str5_1.concat(' + ', str5_2)</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <!-- The trim() method removes whitespace from both sides of a string -->
+        <pre>String.trim() | str6 = "       Hello World!        "</pre>
+        <p id="demo6"></p>
+        <script>
+            var str6 = "       Hello World!        ";
+        </script>
+        <button type="button" onclick="document.getElementById('demo6').innerHTML = str6.trim()">str6.trim()</button>
+        <hr>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p>String Padding | str7 = "5"</p>
+        <p id="demo7"></p>
+        <script>
+            var str7 = "5";
+        </script>
+        <button type="button" onclick="document.getElementById('demo7').innerHTML = str7.padStart(4,0)">str7.padStart(4,0)</button>
+        <button type="button" onclick="document.getElementById('demo7').innerHTML = str7.padEnd(4,0)">str7.padEnd(4,0)</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p>Extracting String Characters | str8 = "HELLO WORLD"</p>
+        <!-- There are 3 methods for extracting string characters:
+            - charAt(position)
+            - charCodeAt(position)
+            - Property access [ ] -->
+        <p id="demo8"></p>
+        <script>
+            var str8 = "HELLO WORLD";
+        </script>
+        <button type="button" onclick="document.getElementById('demo8').innerHTML = 'string = ' + str8.charAt(0)">str8.charAt(0)</button>
+        <button type="button" onclick="document.getElementById('demo8').innerHTML = 'UTF-16 code = ' + str8.charCodeAt(0)">str8.charCodeAt(0)</button>
+        <button type="button" onclick="document.getElementById('demo8').innerHTML = 'string = ' + str8[0]">str8[0]</button>
+        <p>--------------------------------------------------------------------------------------------</p>
+        <p>split() method | str9 = "a*b*c*d*e"</p>
+        <p id="demo9"></p>
+        <script>
+            var str9 = "a*b*c*d*e";
+            var arr9_1 = str9.split("*");
+            var arr9_2 = str9.split("");
+            function convert_to_array(arr) {
+                var i;
+                var text = "arr9 = [\'";
+                for (i = 0; i < arr.length; i++) {
+                    if (i == arr.length - 1) {
+                        text += arr[i] + "\']";
+                        break;
+                    }
+                    text += arr[i] + "\', \'";
+                    // "<br>" = enter xuong hang
+                }
+                return text;
+            }
+        </script>
+        <button type="button" onclick="document.getElementById('demo9').innerHTML = convert_to_array(arr9_1)">arr9 = str.split("*")</button>
+        <button type="button" onclick="document.getElementById('demo9').innerHTML = convert_to_array(arr9_2)">arr9 = str.split("")</button>
+    </body>
+</html>
