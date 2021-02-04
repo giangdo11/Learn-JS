@@ -26,5 +26,6 @@ function addTodo() {
 
         todos.appendChild(todoEl);
         input.value = "";
+        
     }
 }

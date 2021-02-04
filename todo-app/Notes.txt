@@ -1,0 +1,9 @@
+https://fonts.google.com/
+https://uidesigndaily.com/
+https://unsplash.com/           # Photos
+https://fontawesome.com/        # Icons
+https://cdnjs.com/libraries/font-awesome
+
+.class<Tab> = <div class="class"></div>
+i.fas.fa-edit<Tab> = <i class="fas fa-edit"></i>
+p.class#id<Tab> = <p class="class" id="id"></p>
