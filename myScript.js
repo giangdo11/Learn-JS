@@ -169,18 +169,18 @@ fruits.shift();            // Removes the first element "Banana" from fruits
 var x = fruits.shift();    // the value of x is "Banana"
 
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.unshift("Lemon");    // Adds a new element "Lemon" to fruits
-fruits.unshift("Lemon");    // Returns 5
+fruits.unshift("Lemon");    // Adds a new element "Lemon" to fruits ; fruits = Lemon,Banana,Orange,Apple,Mango
+fruits.unshift("Lemon");    // Returns 5 - The unshift() method returns the length of the new array
 
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.splice(2, 0, "Lemon", "Kiwi");
-New Array:  Banana,Orange,Lemon,Kiwi,Apple,Mango
+Result:  Banana,Orange,Lemon,Kiwi,Apple,Mango
 
 fruits.splice(2, 2, "Lemon", "Kiwi");
-New Array:  Banana,Orange,Lemon,Kiwi
+Result:  Banana,Orange,Lemon,Kiwi
 
 fruits.splice(0, 1);        // Removes the first element of fruits
-New Array:  Orange,Apple,Mango
+Result:  Orange,Apple,Mango
 
 var arr1 = ["Cecilie", "Lone"];
 var arr2 = ["Emil", "Tobias", "Linus"];
@@ -190,6 +190,7 @@ var myChildren = arr1.concat(arr2, arr3);   // Concatenates arr1 with arr2 and a
 var arr1 = ["Emil", "Tobias", "Linus"];
 var myChildren = arr1.concat("Peter"); 
 
+// The slice() method creates a new array. It does not remove any elements from the source array.
 var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
 var citrus = fruits.slice(3);
 New Array:  Apple,Mango
@@ -198,13 +199,18 @@ var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
 var citrus = fruits.slice(1, 3);
 New Array:  Orange,Lemon
 
+// Sorting an Array
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();        // First sort the elements of fruits
+fruits.reverse();     // Then reverse the order of the elements
+
 var points = [40, 100, 1, 5, 25, 10];
 points.sort(function(a, b){return a - b});
-New Array:  1,5,10,25,40,100
+Result:  1,5,10,25,40,100
 
 var points = [40, 100, 1, 5, 25, 10];
 points.sort(function(a, b){return b - a});
-New Array:  100,40,25,10,5,1
+Result:  100,40,25,10,5,1
 
 // Sorting an Array in Random Order
 var points = [40, 100, 1, 5, 25, 10];
@@ -234,15 +240,6 @@ cars.sort(function(a, b){
     return 0;
 });
 <p>--------------------------------------------------------------------------------------------</p>
-// Array.forEach()
-var txt = "";
-var numbers = [45, 4, 9, 16, 25];
-numbers.forEach(myFunction);
-
-function myFunction(value, index, array) {
-txt = txt + value + "<br>";
-}
-
 // Callback Function
 function sayHello(name, callback) {
 	var myName = name.toUpperCase() + ", Hello";
@@ -302,3 +299,100 @@ test(personInfo.setName, personInfo);
 // Kết quả: Nguyễn Đình Khoa
 document.write(personInfo.name);
 <p>--------------------------------------------------------------------------------------------</p>
+
+// Array.forEach()
+// The forEach() method calls a function (a callback function) once for each array element.
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+    txt = txt + value + "<br>";
+}
+
+function myFunction(value) {
+    txt = txt + value + "<br>";
+}
+
+// Array.map()
+// The map() method creates a new array by performing a function on each array element.
+// The map() method does not execute the function for array elements without values.
+// The map() method does not change the original array.
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+
+function myFunction(value) {
+    return value * 2;
+}
+
+// Array.filter()
+// The filter() method creates a new array with array elements that passes a test.
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+// Array.reduce() - See also reduceRight()
+// The reduce() method runs a function on each array element to produce (reduce it to) a single value.
+// The reduce() method works from left-to-right in the array. See also reduceRight().
+// The reduce() method does not reduce the original array.
+var numbers1 = [45, 4, 9, 16, 25];
+var sum = numbers1.reduce(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+// The reduce() method can accept an initial value:
+var numbers1 = [45, 4, 9, 16, 25];
+var sum = numbers1.reduce(myFunction, 100);
+
+function myFunction(total, value) {
+  return total + value;
+}
+
+// Array.every()
+// The every() method check if all array values pass a test.
+var numbers = [45, 4, 9, 16, 25];
+var allOver18 = numbers.every(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+Result: allOver18 = false
+
+// Array.some()
+// The some() method check if some array values pass a test.
+var numbers = [45, 4, 9, 16, 25];
+var someOver18 = numbers.some(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+Result: someOver18 = true
+
+// Array.indexOf()
+// The indexOf() method searches an array for an element value and returns its position.
+array.indexOf(item, start)
+// Array.lastIndexOf()
+// Array.lastIndexOf() is the same as Array.indexOf(), but returns the position of the last occurrence of the specified element.
+array.lastIndexOf(item, start)
+
+// Array.find()
+// The find() method returns the value of the first array element that passes a test function.
+var numbers = [4, 9, 16, 25, 29];
+var first = numbers.find(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+Result: first = 25
+// Array.findIndex()
+// The findIndex() method returns the index of the first array element that passes a test function.
+var first = numbers.findIndex(myFunction);
+Result: first = 3
