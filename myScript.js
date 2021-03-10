@@ -396,3 +396,11 @@ Result: first = 25
 // The findIndex() method returns the index of the first array element that passes a test function.
 var first = numbers.findIndex(myFunction);
 Result: first = 3
+
+<p>--------------------------------------------------------------------------------------------</p>
+// JavaScript Regular Expressions
+/pattern/modifiers;
+/w3schools/i  is a regular expression.
+w3schools  is a pattern (to be used in a search).
+i  is a modifier (modifies the search to be case-insensitive).
+
